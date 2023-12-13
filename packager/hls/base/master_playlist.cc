@@ -522,6 +522,9 @@ bool MasterPlaylist::WriteMasterPlaylist(
     return false;
   }
   written_playlist_ = content;
+
+  LOG(ERROR) << "HLS_NotifyMasterPlaylist|" << file_path;
+
   return true;
 }
 

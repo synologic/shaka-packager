@@ -219,7 +219,13 @@ bool SimpleMpdNotifier::NotifyMediaInfoUpdate(uint32_t container_id,
 
 bool SimpleMpdNotifier::Flush() {
   absl::MutexLock lock(&lock_);
-  return WriteMpdToFile(output_path_, mpd_builder_.get());
+  bool success = WriteMpdToFile(output_path_, mpd_builder_.get());
+
+  if (success) {
+    LOG(ERROR) << "MPD_ManifestNotifier|" << output_path_;
+  }
+
+  return success;
 }
 
 }  // namespace shaka

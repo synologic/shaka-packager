@@ -492,6 +492,7 @@ bool MediaPlaylist::WriteToFile(const std::filesystem::path& file_path) {
     LOG(ERROR) << "Failed to write playlist to: " << file_path.string();
     return false;
   }
+  LOG(ERROR) << "HLS_NotifyMediaPlaylist|" << file_path;
   return true;
 }
 

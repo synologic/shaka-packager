@@ -385,6 +385,7 @@ bool SimpleHlsNotifier::NotifyNewSegment(uint32_t stream_id,
       return false;
     }
   }
+  LOG(ERROR) << "HLS_NotifyNewSegment|" << segment_url << "|" << duration << "|" << start_time << "|" << size;
   return true;
 }
 
